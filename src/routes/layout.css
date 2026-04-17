@@ -22,3 +22,13 @@ body {
 	padding-inline: 1.5rem;
 	max-width: 50rem;
 }
+
+.tag-capsule {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.25em 1em;
+	border: 1px solid var(--border);
+	border-radius: 100vw;
+	font-size: 0.875rem;
+	line-height: 1;
+}

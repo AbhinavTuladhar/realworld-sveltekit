@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { marked } from 'marked';
+
 	let { data } = $props();
 
 	let {
@@ -25,6 +27,8 @@
 			day: 'numeric'
 		})
 	);
+
+	let parsedHtml = $derived(marked.parse(body));
 </script>
 
 <section class="banner">
@@ -49,8 +53,8 @@
 </section>
 
 <section class="main-content small-container">
-	<div class="body">
-		{body}
+	<div class="body prose prose-invert">
+		{@html parsedHtml}
 	</div>
 
 	<ul class="tags-list">
@@ -122,6 +126,7 @@
 
 	.body {
 		margin-top: 3rem;
+		/* color: white !important; */
 	}
 
 	.tags-list {
