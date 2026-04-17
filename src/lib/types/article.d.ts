@@ -1,5 +1,7 @@
+import type { RegularUser } from './user';
+
 export interface Article {
-	author: any;
+	author: RegularUser;
 	createdAt: string;
 	description: string;
 	favorited: boolean;
