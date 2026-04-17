@@ -2,9 +2,13 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+:root {
+	--border: hsl(0, 0%, 40%);
+}
+
 body {
 	background: #16161d;
-	color: white;
+	color: hsl(240, 80%, 92%);
 }
 
 @utility container {
