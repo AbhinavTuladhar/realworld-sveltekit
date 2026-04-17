@@ -8,7 +8,7 @@
 	} = $derived(data);
 </script>
 
-<div class="main-grid">
+<div class="main-grid container">
 	<section class="articles-container">
 		{#each articles as article (article.slug)}
 			<ArticlePreview {...article} />

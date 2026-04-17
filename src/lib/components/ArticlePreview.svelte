@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import type { Article } from '$lib/types';
 
 	const { author, createdAt, description, favoritesCount, slug, tagList, title }: Article =
@@ -19,7 +20,9 @@
 			<span class="count">{favoritesCount}</span>
 		</button>
 	</div>
-	<h2 class="title">{title}</h2>
+	<h2 class="title">
+		<a href={resolve(`/article/${slug}`)}>{title}</a>
+	</h2>
 	<p class="description">
 		{description}
 	</p>
@@ -34,6 +37,9 @@
 	article {
 		position: relative;
 		padding-block: 1.5rem;
+	}
+
+	article:not(:last-child) {
 		border-bottom: 1px solid var(--border);
 	}
 

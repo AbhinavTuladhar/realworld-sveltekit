@@ -11,3 +11,7 @@ export interface Article {
 	title: string;
 	updatedAt: string;
 }
+
+export interface ArticleDetail extends Article {
+	body: string;
+}
