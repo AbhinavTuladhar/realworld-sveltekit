@@ -24,7 +24,7 @@
 	</div>
 </section>
 
-<div class="small-container">
+<div class="medium-container">
 	<ul class="article-links">
 		<li>
 			<a
@@ -53,10 +53,10 @@
 			</a>
 		</li>
 	</ul>
+</div>
 
-	<div>
-		{@render children()}
-	</div>
+<div class="medium-container">
+	{@render children()}
 </div>
 
 <style>
@@ -107,5 +107,11 @@
 		color: var(--active-colour);
 		border-bottom-color: var(--active-colour);
 		transition: all 0.2s ease-out;
+	}
+
+	.medium-container {
+		max-width: 60rem;
+		margin-inline: auto;
+		padding-inline: 2rem;
 	}
 </style>
