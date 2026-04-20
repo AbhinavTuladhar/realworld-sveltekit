@@ -1,5 +1,6 @@
 <script lang="ts">
 	import CommentCard from '$lib/components/CommentCard.svelte';
+	import { convertToStandardDate } from '$lib/utils/date.utils.js';
 	import { marked } from 'marked';
 
 	let { data } = $props();
@@ -16,13 +17,7 @@
 		comments
 	} = $derived(data);
 
-	const formatted = $derived(
-		new Date(createdAt).toLocaleDateString(undefined, {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
-		})
-	);
+	const formatted = $derived(convertToStandardDate(createdAt));
 
 	let parsedHtml = $derived(marked.parse(body));
 </script>

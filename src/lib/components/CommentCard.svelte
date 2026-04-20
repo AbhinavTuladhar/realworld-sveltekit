@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { RegularUser } from '$lib/types';
+	import { convertToStandardDate } from '$lib/utils/date.utils';
 
 	interface CardProps {
 		body: string;
@@ -8,6 +9,8 @@
 	}
 
 	let { author, body, postDate }: CardProps = $props();
+
+	const realDate = $derived(convertToStandardDate(postDate));
 
 	const { image, username } = $derived(author);
 </script>
@@ -22,7 +25,7 @@
 		</div>
 		<div class="meta-info">
 			<span class="author">{username}</span>
-			<span class="date">{postDate}</span>
+			<span class="date">{realDate}</span>
 		</div>
 	</div>
 </article>
@@ -45,6 +48,7 @@
 		border-top: 1px solid var(--border);
 		background: hsl(0, 0%, 17.5%);
 		border-radius: 0 0 6px 6px;
+		font-size: 0.75rem;
 	}
 
 	.image {

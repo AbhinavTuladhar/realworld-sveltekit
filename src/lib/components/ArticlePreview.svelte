@@ -1,9 +1,12 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import type { Article } from '$lib/types';
+	import { convertToStandardDate } from '$lib/utils/date.utils';
 
 	const { author, createdAt, description, favoritesCount, slug, tagList, title }: Article =
 		$props();
+
+	const formattedDate = $derived(convertToStandardDate(createdAt));
 </script>
 
 <article>
@@ -13,7 +16,7 @@
 		</div>
 		<div class="author-date">
 			<span class="author">{author.username}</span>
-			<span class="date">{createdAt}</span>
+			<span class="date">{formattedDate}</span>
 		</div>
 		<button class="favourite">
 			<span class="heart">❤️</span>
@@ -45,6 +48,7 @@
 
 	.top-row {
 		display: flex;
+		align-items: center;
 		gap: 0.5rem;
 	}
 
