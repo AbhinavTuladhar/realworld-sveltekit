@@ -1,23 +1,19 @@
 <script lang="ts">
+	import CommentCard from '$lib/components/CommentCard.svelte';
 	import { marked } from 'marked';
 
 	let { data } = $props();
 
 	let {
-		data: {
-			article: {
-				author: { username, image },
-				createdAt,
-				description,
-				favoritesCount,
-				slug,
-				tagList,
-				title,
-				body,
-				favorited,
-				updatedAt
-			}
-		}
+		article: {
+			author: { username, image },
+			createdAt,
+			favoritesCount,
+			tagList,
+			title,
+			body
+		},
+		comments
 	} = $derived(data);
 
 	const formatted = $derived(
@@ -60,6 +56,15 @@
 	<ul class="tags-list">
 		{#each tagList as tag (tag)}
 			<li class="tag-capsule">{tag}</li>
+		{/each}
+	</ul>
+</section>
+
+<section class="comments-section container">
+	<h2>Comments</h2>
+	<ul class="comments-container">
+		{#each comments as { author, body, createdAt, id } (id)}
+			<CommentCard {author} {body} postDate={createdAt} />
 		{/each}
 	</ul>
 </section>
@@ -132,6 +137,23 @@
 	.tags-list {
 		display: flex;
 		gap: 0.5rem;
-		margin-top: 2rem;
+		margin-block: 2rem;
+	}
+
+	.comments-section {
+		padding-top: 2rem;
+		border-top: 1px solid var(--border);
+	}
+
+	.comments-section h2 {
+		font-size: 1.5rem;
+		font-weight: 600;
+	}
+
+	.comments-container {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		margin-top: 1rem;
 	}
 </style>
