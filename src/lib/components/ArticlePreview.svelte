@@ -15,7 +15,9 @@
 			<img src={author.image} alt={author.username} />
 		</div>
 		<div class="author-date">
-			<span class="author">{author.username}</span>
+			<span class="author">
+				<a href={resolve(`/profile/${author.username}`)}>{author.username}</a>
+			</span>
 			<span class="date">{formattedDate}</span>
 		</div>
 		<button class="favourite">
@@ -58,6 +60,14 @@
 		height: 2rem;
 		border-radius: 50%;
 		overflow: hidden;
+	}
+
+	.author {
+		color: hsl(210, 50%, 50%);
+	}
+
+	.author:hover {
+		text-decoration: underline;
 	}
 
 	.author-date {
