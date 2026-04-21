@@ -1,6 +1,6 @@
 import { BASE_URL } from '$lib/api/api';
 import type { RegistrationResponse } from '$lib/types/user';
-import { type Actions } from '@sveltejs/kit';
+import { redirect, type Actions } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ parent }) => {
@@ -32,5 +32,7 @@ export const actions: Actions = {
 		const userData = (await response.json()) as { user: RegistrationResponse };
 		const value = btoa(JSON.stringify(userData.user));
 		cookies.set('jwt', value, { path: '/' });
+
+		redirect(303, '/');
 	}
 } satisfies Actions;
