@@ -1,6 +1,13 @@
 import { BASE_URL } from '$lib/api/api';
 import type { RegistrationResponse } from '$lib/types/user';
-import type { Actions } from '@sveltejs/kit';
+import { type Actions } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
+
+export const load: PageServerLoad = async ({ parent }) => {
+	const { user } = await parent();
+
+	return user;
+};
 
 export const actions: Actions = {
 	register: async ({ request, fetch, cookies }) => {
@@ -23,11 +30,7 @@ export const actions: Actions = {
 		});
 
 		const userData = (await response.json()) as { user: RegistrationResponse };
-
-		const { token } = userData.user;
-
-		cookies.set('jwt', token, {
-			path: '/'
-		});
+		const value = btoa(JSON.stringify(userData.user));
+		cookies.set('jwt', value, { path: '/' });
 	}
 } satisfies Actions;

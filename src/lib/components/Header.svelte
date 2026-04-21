@@ -18,6 +18,8 @@
 			href: '/register'
 		}
 	];
+
+	const isAuthenticated = $derived(page.data.user !== null);
 </script>
 
 <header class="border-b border-gray-600">
@@ -37,5 +39,8 @@
 				{/each}
 			</ul>
 		</nav>
+		{#if isAuthenticated}
+			<p>Authenticated</p>
+		{/if}
 	</div>
 </header>

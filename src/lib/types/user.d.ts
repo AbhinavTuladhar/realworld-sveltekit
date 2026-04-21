@@ -12,3 +12,10 @@ export interface RegistrationResponse {
 	bio: string | null;
 	image: string | null;
 }
+
+export interface LocalUser {
+	username: string;
+	email: string;
+	image: string | null;
+	bio: string | null;
+}
