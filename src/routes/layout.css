@@ -4,6 +4,7 @@
 
 :root {
 	--border: hsl(0, 0%, 40%);
+	--blue: hsl(210, 50%, 50%);
 }
 
 html {

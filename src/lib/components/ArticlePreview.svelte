@@ -63,7 +63,7 @@
 	}
 
 	.author {
-		color: hsl(210, 50%, 50%);
+		color: var(--blue);
 	}
 
 	.author:hover {
