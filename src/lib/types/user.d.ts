@@ -18,4 +18,5 @@ export interface LocalUser {
 	email: string;
 	image: string | null;
 	bio: string | null;
+	token: string;
 }

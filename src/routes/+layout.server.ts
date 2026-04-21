@@ -6,7 +6,8 @@ export const load: LayoutServerLoad = ({ locals }) => {
 			username: locals.user.username,
 			email: locals.user.email,
 			image: locals.user.image,
-			bio: locals.user.bio
+			bio: locals.user.bio,
+			token: locals.user.token
 		}
 	};
 };

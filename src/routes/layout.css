@@ -36,3 +36,15 @@ body {
 	font-size: 0.875rem;
 	line-height: 1;
 }
+
+.submit-btn {
+	padding-block: 0.75em;
+	background: hsl(110, 80%, 30%);
+	border-radius: 4px;
+	transition: background-color 0.4s ease-out;
+	cursor: pointer;
+}
+
+.submit-btn:hover {
+	background: hsl(110, 80%, 25%);
+}

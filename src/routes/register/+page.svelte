@@ -11,7 +11,7 @@
 		<input name="username" type="text" bind:value={username} placeholder="User name" />
 		<input name="email" type="email" bind:value={email} placeholder="Email" />
 		<input name="password" type="password" bind:value={password} placeholder="User Password" />
-		<button type="submit"> Submit </button>
+		<button class="submit-btn" type="submit"> Submit </button>
 	</form>
 </div>
 
@@ -39,17 +39,5 @@
 		color: white;
 		border: none;
 		border-bottom: 1px solid var(--border);
-	}
-
-	button {
-		padding-block: 0.75em;
-		background: hsl(110, 80%, 30%);
-		border-radius: 4px;
-		transition: background-color 0.4s ease-out;
-		cursor: pointer;
-	}
-
-	button:hover {
-		background: hsl(110, 80%, 25%);
 	}
 </style>
