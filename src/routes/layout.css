@@ -6,6 +6,10 @@
 	--border: hsl(0, 0%, 40%);
 }
 
+html {
+	scrollbar-gutter: stable;
+}
+
 body {
 	background: #16161d;
 	color: hsl(240, 80%, 98%);

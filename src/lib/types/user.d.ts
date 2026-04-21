@@ -4,3 +4,11 @@ export interface RegularUser {
 	bio: string;
 	following: boolean;
 }
+
+export interface RegistrationResponse {
+	email: string;
+	token: string;
+	username: string;
+	bio: string | null;
+	image: string | null;
+}
