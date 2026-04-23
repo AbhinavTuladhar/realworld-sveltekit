@@ -4,7 +4,9 @@
 
 	const currentPath = $derived(page.url.pathname);
 
-	const isAuthenticated = $derived(page.data.user !== null);
+	const user = $derived(page.data.user);
+
+	const isAuthenticated = $derived(user !== null);
 </script>
 
 <header class="header border-b border-gray-600">
@@ -19,8 +21,9 @@
 				</li>
 				{#if isAuthenticated}
 					<li>
-						<a class:active={currentPath === resolve('/profile')} href={resolve('/profile')}
-							>Profile</a
+						<a
+							class:active={currentPath === resolve(`/profile/${user.username}`)}
+							href={resolve(`/profile/${user.username}`)}>Profile</a
 						>
 					</li>
 					<li>

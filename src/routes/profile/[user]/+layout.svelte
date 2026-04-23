@@ -17,7 +17,11 @@
 <section class="banner">
 	<div class="small-container">
 		<div class="image">
-			<img src={image} alt={username} />
+			<img
+				src={image ||
+					'https://raw.githubusercontent.com/gothinkster/node-express-realworld-example-app/refs/heads/master/src/assets/images/smiley-cyrus.jpeg'}
+				alt={username}
+			/>
 		</div>
 		<h1 class="username">{username}</h1>
 		<p class="bio">{bio}</p>
