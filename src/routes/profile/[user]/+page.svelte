@@ -1,13 +1,9 @@
 <script lang="ts">
-	import ArticlePreview from '$lib/components/ArticlePreview.svelte';
+	import ArticleList from '$lib/components/ArticleList.svelte';
 
 	const { data } = $props();
 
 	const { articles } = $derived(data);
 </script>
 
-<ul>
-	{#each articles as article (article.slug)}
-		<ArticlePreview {...article} />
-	{/each}
-</ul>
+<ArticleList articleList={articles} />

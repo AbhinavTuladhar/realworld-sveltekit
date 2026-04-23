@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ArticlePreview from '$lib/components/ArticlePreview.svelte';
+	import ArticleList from '$lib/components/ArticleList.svelte';
 
 	const { data } = $props();
 
@@ -10,9 +10,7 @@
 
 <div class="main-grid container">
 	<section class="articles-container">
-		{#each articles as article (article.slug)}
-			<ArticlePreview {...article} />
-		{/each}
+		<ArticleList articleList={articles} />
 	</section>
 	<aside class="tags-container">
 		{#each tags as tag (tag)}
