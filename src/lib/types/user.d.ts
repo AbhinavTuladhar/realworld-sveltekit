@@ -1,6 +1,6 @@
 export interface RegularUser {
 	username: string;
-	image: string;
+	image: string | null;
 	bio: string;
 	following: boolean;
 }
